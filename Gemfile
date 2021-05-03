@@ -8,6 +8,8 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'webpacker', '~> 5.0'
 
+gem 'devise'
+
 group :development, :test do
   gem 'pry-rails'
 end
