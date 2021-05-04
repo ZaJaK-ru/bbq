@@ -1,41 +1,8 @@
-.buffer-top {
-  margin-top: 20px;
-}
+/*
+(с) goodprogrammer.ru
 
-.buffer-bottom {
-  margin-bottom: 20px;
-}
-
-.buffer-both {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.img-icon, .img-icon-small {
-  height: 50px;
-  width: auto;
-  border-radius: 50%;
-}
-
-.thumbnail {
-  position: relative;
-  background: transparent;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
-.thumbnail h3 {
-  white-space: nowrap;
-  overflow: hidden;
-  margin-top: 0;
-  margin-bottom: .3em;
-}
-
-.thumbnail-inner {
-  padding: 20px 4px 4px;
-}
-
+Наши дополнительные стили для красивого оформления плитки событий
+*/
 
 .event-info {
   position: relative;
