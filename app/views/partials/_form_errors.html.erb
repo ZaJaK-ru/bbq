@@ -1,15 +1,14 @@
-<%# Универсальный паршиал отображения ошибок валидации любой модели %>
 <% errors = model.errors %>
 
 <% if errors.any? %>
   <div class="alert alert-danger">
     <div class="lead buffer-bottom">
-      В вашей форме <%= errors.count %> ошибок
+      В вашей форме <%= I18n.t :errors_declination, count: errors.count %>
     </div>
 
     <ul>
-      <% errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% errors.each do |error| %>
+        <li><%= error.attribute %> <%= error.message %></li>
       <% end %>
     </ul>
   </div>
