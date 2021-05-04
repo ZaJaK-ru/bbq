@@ -15,7 +15,11 @@
       <div class="container">
         <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
 
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse" id="navbarNav">
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
               <li><%= link_to 'Профиль', current_user, class: "nav-link" %></li>
@@ -36,13 +40,13 @@
           <%= yield %>
         </div>
         <div class="col-lg-3">
-      </div><!--/span-->
-      </div><!--/row-->
+        </div>
+      </div>
 
       <footer>
         <p>&copy; <%= t('app.company') %> 2021</p>
       </footer>
 
-    </div> <!-- /container -->
+    </div>
   </body>
 </html>
