@@ -14,8 +14,7 @@
 
   <div class="form-group">
     <%= f.label :datetime %>
-    <%= f.hidden_field :datetime %>
-    <div id="datepick" class="datepicker-here" data-timepicker="true"></div>
+    <%= f.date_field :datetime, value: @event.datetime.try(:strftime, "%d.%m.%Y %H:%M"), class: 'form-control' %>
   </div>
 
   <div class="form-group">
