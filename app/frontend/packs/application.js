@@ -1,6 +1,7 @@
 require("@rails/ujs").start()
 import 'bootstrap/dist/js/bootstrap'
-import 'air-datepicker/dist/js/datepicker.min';
+import 'air-datepicker/dist/js/datepicker.min'
+import '@fortawesome/fontawesome-free/css/all'
 import '../scripts/bootstrap' 
 import '../scripts/dp.js'
 
