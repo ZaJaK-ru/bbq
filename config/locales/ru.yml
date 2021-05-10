@@ -48,5 +48,6 @@ ru:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комменатрий?'
   subscriptions:
+    email_already_exists: 'уже зарегистрирован в базе'
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'

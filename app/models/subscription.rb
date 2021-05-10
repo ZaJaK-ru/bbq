@@ -8,6 +8,8 @@ class Subscription < ApplicationRecord
   validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
   validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
 
+  validate :email_already_exists, unless: -> { user.present? }
+
   def user_name
     if user.present?
       user.name
@@ -22,5 +24,11 @@ class Subscription < ApplicationRecord
     else
       super
     end
+  end
+
+  private
+
+  def email_already_exists
+    errors.add(:user_email, I18n.t('subscriptions.email_already_exists')) if User.exists?(email: user_email)
   end
 end
