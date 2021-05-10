@@ -4,6 +4,12 @@ ru:
       default: "%d.%m.%Y %H:%M"
       my_format: "%d.%m.%Y %H:%M"
   activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              email_already_exists: 'Пользователь с таким e-mail существует!'
     models:
       user: 'Пользователь'
       event: 'Событие'
@@ -48,6 +54,5 @@ ru:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комменатрий?'
   subscriptions:
-    email_already_exists: 'уже зарегистрирован в базе'
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
