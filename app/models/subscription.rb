@@ -29,6 +29,6 @@ class Subscription < ApplicationRecord
   private
 
   def email_already_exists
-    errors.add(:user_email, I18n.t('subscriptions.email_already_exists')) if User.exists?(email: user_email)
+    errors.add(:user_email, I18n.t('subscriptions.email_already_exists')) if User.exists?(email: user_email.downcase)
   end
 end
