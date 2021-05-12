@@ -52,14 +52,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: '587',
-    user_name: 'barbq.heroku', # не используйте для тестов свои реальные ящики
-    password: 'heroku2021',
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+  config.action_mailer.delivery_method = :mailjet
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
