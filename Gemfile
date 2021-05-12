@@ -14,6 +14,8 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
+gem 'mailjet'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'pry-rails'
