@@ -12,17 +12,9 @@ Bundler.require(*Rails.groups)
 
 module Bbq
   class Application < Rails::Application
-    config.load_defaults 6.1
+    #config.load_defaults 6.1
     config.i18n.default_locale = :ru
     config.i18n.locale = :ru
     config.generators.system_tests = nil
-  end
-end
-
-module Mailjet
-  class Application < Rails::Application
-    config.load_default 6.0
-    config.generators.system_tests = nil
-    config.action_mailer.delivery_method = :mailjet
   end
 end
