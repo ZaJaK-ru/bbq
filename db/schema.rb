@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_05_10_144915) do
 
   create_table "photos", force: :cascade do |t|
     t.string "photo"
-    t.bigint "event_id", null: false
+    t.bigint "event_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -8,6 +8,8 @@ ru:
       models:
         subscription:
           attributes:
+            event:
+              self_subscription_ban: 'Нельзя подписаться на свое событие'
             user_email:
               email_already_exists: 'Пользователь с таким e-mail существует!'
     models:

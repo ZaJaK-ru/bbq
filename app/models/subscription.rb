@@ -9,6 +9,7 @@ class Subscription < ApplicationRecord
   validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
 
   validate :email_already_exists, unless: -> { user.present? }
+  validate :self_subscription_ban, on: :create
 
   def user_name
     if user.present?
@@ -30,5 +31,9 @@ class Subscription < ApplicationRecord
 
   def email_already_exists
     errors.add(:user_email, :email_already_exists) if User.exists?(email: user_email.downcase)
+  end
+
+  def self_subscription_ban
+    errors.add(:event, :self_subscription_ban) if user == event.user
   end
 end
