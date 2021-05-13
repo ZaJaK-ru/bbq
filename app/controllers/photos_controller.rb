@@ -7,6 +7,9 @@ class PhotosController < ApplicationController
     @new_photo.user = current_user
 
     if @new_photo.save
+      all_emails = @event.subscriptions.map(&:user_email) + [@event.user.email] - [@new_photo.user.email]
+      all_emails.each { |email| EventMailer.photo(@event, @new_photo, email).deliver_later }
+
       redirect_to @event, notice: I18n.t('controllers.photos.created')
     else
       render 'events/show', alert: I18n.t('controllers.photos.error')
