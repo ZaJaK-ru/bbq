@@ -1,3 +1,6 @@
-export MAILJET_API_KEY="6d7b59c4fe727b4393b557800972153b"
-export MAILJET_SECRET_KEY="34469e4e07528be9848ea1fbe76bcb84"
-export MAILJET_SENDER="regliq@ya.ru"
+Mailjet.configure do |config|
+  config.api_key = ENV['MAILJET_API_KEY']
+  config.secret_key = ENV['MAILJET_SECRET_KEY']
+  config.default_from = ENV['MAILJET_SENDER']
+  config.api_version = 'v3.1'
+end
