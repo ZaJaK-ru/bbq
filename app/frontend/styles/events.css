@@ -50,3 +50,9 @@
   width: 100%;
   height: 400px;
 }
+
+.event-photo {
+  background-color: #eee;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
