@@ -16,8 +16,11 @@ gem 'rmagick'
 gem 'fog-aws'
 gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
 
-
 group :development, :test do
   gem 'dotenv-rails'
   gem 'pry-rails'
+end
+
+group :production do
+  gem 'pg'
 end
