@@ -8,7 +8,7 @@
     <%= csp_meta_tag %>
 
     <%= javascript_pack_tag 'application' %>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=6d88349c-a120-4342-b6ab-53be8fec4cdf&lang=ru_RU" type="text/javascript">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=<%=Rails.application.credentials.yandex[:api_key]%>&lang=ru_RU" type="text/javascript">
     </script>
   </head>
   <body>
