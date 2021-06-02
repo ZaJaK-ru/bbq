@@ -48,7 +48,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "bbq_production"
 
-  config.action_mailer.default_url_options = { host: 'https://rubynium.ru/' }
+  config.action_mailer.default_url_options = { host: 'http://rubynium.ru' }
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :mailjet
