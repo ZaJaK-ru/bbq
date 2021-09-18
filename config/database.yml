@@ -80,7 +80,9 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: bbq_production
-  username: bbq
-  password: <%= ENV['BBQ_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  database: rubynium_prod
+  user: <%= Rails.application.credentials.database[:username] %>
+  password: <%= Rails.application.credentials.database[:password] %>
