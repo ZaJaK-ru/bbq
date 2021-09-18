@@ -16,10 +16,6 @@ gem 'rmagick'
 gem 'fog-aws'
 gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
 
-gem 'rbnacl', '< 5.0', :require => false
-gem 'rbnacl-libsodium', :require => false
-gem 'bcrypt_pbkdf', '< 2.0', :require => false
-
 group :development, :test do
   gem 'pry-rails'
   gem 'capistrano'

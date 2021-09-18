@@ -6,6 +6,7 @@ set :repo_url, "git@github.com:zvasib/bbq.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+set :branch, 'main'
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/deploy/www/'
@@ -37,3 +38,4 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+Rake::Task["deploy:assets:backup_manifest"].clear_actions
