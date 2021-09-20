@@ -15,6 +15,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
 gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
+gem 'pundit'
 
 group :development, :test do
   gem 'pry-rails'
@@ -23,6 +24,9 @@ group :development, :test do
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
 end
 
 group :production do
