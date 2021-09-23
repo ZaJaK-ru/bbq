@@ -7,8 +7,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription.user = current_user
 
     if @new_subscription.save
-      EventMailerJob.perform_later(@event, @new_subscription)
-      #EventMailer.subscription(@event, @new_subscription).deliver_now
+      EventMailerJob.perform_later(@new_subscription)
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else
       render 'events/show', alert: I18n.t('controllers.subscriptions.error')
@@ -26,15 +25,16 @@ class SubscriptionsController < ApplicationController
   end
 
   private
-    def set_subscription
-      @subscription = @event.subscriptions.find(params[:id])
-    end
 
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
+  def set_subscription
+    @subscription = @event.subscriptions.find(params[:id])
+  end
 
-    def subscription_params
-      params.fetch(:subscription, {}).permit(:user_email, :user_name)
-    end
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
+
+  def subscription_params
+    params.fetch(:subscription, {}).permit(:user_email, :user_name)
+  end
 end
