@@ -11,8 +11,6 @@ set :branch, 'main'
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/deploy/www/'
 
-after 'deploy:restart', 'resque:restart'
-
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
@@ -41,3 +39,5 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 Rake::Task["deploy:assets:backup_manifest"].clear_actions
+
+after 'deploy:restart', 'resque:restart'
