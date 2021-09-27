@@ -65,6 +65,7 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+  config.hosts << 'lvh.me'
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

@@ -8,6 +8,7 @@
 .DS_Store
 */.DS_Store
 /.bundle
+/dump.rdp
 
 # Ignore all logfiles and tempfiles.
 /log/*
