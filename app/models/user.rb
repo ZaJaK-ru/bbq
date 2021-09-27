@@ -21,8 +21,9 @@ class User < ApplicationRecord
 
   def self.find_for_oauth(access_token)
     email = access_token.info.email
-    user = where(email: email).first
+    return if email.nil?
 
+    user = where(email: email).first
     return user if user.present?
 
     provider = access_token.provider
