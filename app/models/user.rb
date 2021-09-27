@@ -25,22 +25,19 @@ class User < ApplicationRecord
 
     return user if user.present?
 
-    name = access_token.info.name
     provider = access_token.provider
     id = access_token.extra.raw_info.id
 
     case provider
     when 'facebook'
       url = "https://facebook.com/#{id}"
-      image = access_token.info.image.gsub('http://','https://').split("=")[0] << "=large"
     when 'vkontakte'
       url = "https://vk.com/#{id}"
-      image = access_token.extra.raw_info.photo_400_orig.gsub('http://','https://')
     end
 
     where(url: url, provider: provider).first_or_create! do |user|
-      user.name = name
-      user.remote_avatar_url = image
+      user.name = access_token.info.name
+      user.remote_avatar_url = access_token.info.image
       user.email = email
       user.password = Devise.friendly_token.first(16)
     end
