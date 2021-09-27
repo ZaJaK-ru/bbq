@@ -20,8 +20,6 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   def self.find_for_oauth(access_token)
-
-
     email = access_token.info.email
     user = where(email: email).first
 
@@ -34,13 +32,15 @@ class User < ApplicationRecord
     case provider
     when 'facebook'
       url = "https://facebook.com/#{id}"
+      image = access_token.info.image.gsub('http://','https://').split("=")[0] << "=large"
     when 'vkontakte'
       url = "https://vk.com/#{id}"
+      image = access_token.extra.raw_info.photo_400_orig.gsub('http://','https://')
     end
 
     where(url: url, provider: provider).first_or_create! do |user|
       user.name = name
-      user.remote_avatar_url = access_token.info.image.gsub('http://','https://')
+      user.remote_avatar_url = image
       user.email = email
       user.password = Devise.friendly_token.first(16)
     end
