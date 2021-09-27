@@ -274,7 +274,10 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   config.omniauth :facebook, Rails.application.credentials.oauth[:fb_id],
-    Rails.application.credentials.oauth[:fb_secret]
+    Rails.application.credentials.oauth[:fb_secret], scope: 'email'
+
+  config.omniauth :vkontakte, Rails.application.credentials.oauth[:vk_id],
+    Rails.application.credentials.oauth[:vk_secret], scope: 'email'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

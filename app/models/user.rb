@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook]
+         :omniauthable, omniauth_providers: %i[facebook vkontakte]
 
   has_many :events
   has_many :comments
@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  def self.find_for_facebook_oauth(access_token)
+  def self.find_for_oauth(access_token)
     email = access_token.info.email
     user = where(email: email).first
 
@@ -28,7 +28,13 @@ class User < ApplicationRecord
     name = access_token.info.name
     provider = access_token.provider
     id = access_token.extra.raw_info.id
-    url = "https://facebook.com/#{id}"
+
+    case provider
+    when 'facebook'
+      url = "https://facebook.com/#{id}"
+    when 'vkontakte'
+      url = "https://vk.com/#{id}"
+    end
 
     where(url: url, provider: provider).first_or_create! do |user|
       user.name = name
