@@ -21,12 +21,14 @@ class User < ApplicationRecord
 
   def self.find_for_oauth(access_token)
     email = access_token.info.email
-    user = where(email: email).first
+    email ||= "email#{access_token.uid}@#{access_token.provider}.com"
 
+    user = where(email: email).first
     return user if user.present?
 
     provider = access_token.provider
     id = access_token.extra.raw_info.id
+    name = access_token.info.name
 
     case provider
     when 'facebook'
@@ -36,8 +38,8 @@ class User < ApplicationRecord
     end
 
     where(url: url, provider: provider).first_or_create! do |user|
-      user.name = access_token.info.name
-      user.remote_avatar_url = access_token.info.image
+      user.name = name
+      user.remote_avatar_url = access_token.info.image.gsub('http://','https://')
       user.email = email
       user.password = Devise.friendly_token.first(16)
     end
