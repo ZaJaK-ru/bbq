@@ -94,3 +94,34 @@ ru:
       subject: 'Новая фотография'
   pundit:
     not_authorized: 'Вам не разрещено это действие!'
+  devise:
+    new:
+      forgot_your_password: 'Забыли пароль?'
+      send_me_reset_password_instructions: 'Выслать новый пароль'
+    edit:
+      change_your_password: 'Изменить пароль'
+      new_password: 'Новый пароль'
+      minimum_password_length: 'Не менее %{resource} символов'
+      confirm_new_password: 'Подтвердить новый пароль'
+      change_my_password: 'Сменить мой пароль'
+    registrations:
+      new:
+        sign_up: 'Регистрация'
+        sign_up_submit: 'Зарегистрироваться'
+        minimum_password_length: 'Не менее %{resource} символов'
+      edit:
+        edit_user: 'Редактировать пользователя'
+        leave_blank: '(оставьте поле пустым, если не хотите его менять пароль)'
+        minimum_password_length: 'Не менее %{resource} символов'
+        current_password: '(введите текущий пароль для подтверждения изменений)'
+        update: 'Обновить'
+        cancel: 'Удалить аккаунт'
+        are_you_sure: 'Вы уверены?'
+        back: 'Назад'
+    shared:
+      links:
+        registration: 'Регистрация'
+        sign_with: 'Войти через'
+    sessions:
+      new:
+        sign_in: 'Войти'
